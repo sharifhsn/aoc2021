@@ -37,5 +37,5 @@ pub fn read_str_file(path: &str) -> Result<Vec<String>, Report> {
     let mut contents = String::new();
     file.read_to_string(&mut contents)?;
 
-    Ok(contents.split_whitespace().map(String::from).collect())
+    Ok(contents.split('\n').map(String::from).collect())
 }
