@@ -8,9 +8,9 @@ pub fn p1(path: &str) -> Result<i32, Report> {
     let mut diagram = vec!([0; 1000]; 1000);
     for d in data {
         //info!("{}", d);
-        let v: Vec<&str> = d.split(" -> ").collect();
-        let (x1, y1) = v[0].split(',').collect_tuple().unwrap();
-        let (x2, y2) = v[1].split(',').collect_tuple().unwrap();
+        let t: (&str, &str) = d.split(" -> ").collect_tuple().unwrap();
+        let (x1, y1) = t.0.split(',').collect_tuple().unwrap();
+        let (x2, y2) = t.1.split(',').collect_tuple().unwrap();
         let (x1, y1, x2, y2) = (
             x1.parse::<usize>()?,
             y1.parse::<usize>()?,
@@ -46,10 +46,10 @@ pub fn p2(path: &str) -> Result<i32, Report> {
     let mut diagram = vec!([0; 1000]; 1000);
     for d in data {
         //info!("{}", d);
-        let v: Vec<&str> = d.split(" -> ").collect();
+        let t: (&str, &str) = d.split(" -> ").collect_tuple().unwrap();
         //info!("{}", v[0]);
-        let (x1, y1) = v[0].split(',').collect_tuple().unwrap();
-        let (x2, y2) = v[1].split(',').collect_tuple().unwrap();
+        let (x1, y1) = t.0.split(',').collect_tuple().unwrap();
+        let (x2, y2) = t.1.split(',').collect_tuple().unwrap();
         let (x1, y1, x2, y2) = (
             x1.parse::<usize>()?,
             y1.parse::<usize>()?,
