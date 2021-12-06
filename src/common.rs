@@ -21,6 +21,13 @@ pub fn log_setup() -> Result<(), Report> {
     Ok(())
 }
 
+pub fn read_file(path: &str) -> Result<String, Report> {
+    let mut file = File::open(path)?;
+    let mut buf = String::new();
+    file.read_to_string(&mut buf)?;
+    Ok(buf)
+}
+
 pub fn read_num_file(path: &str) -> Result<Vec<i32>, Report> {
     let mut file = File::open(path)?;
     let mut contents = String::new();
