@@ -5,7 +5,7 @@ use std::cmp;
 
 pub fn p1(path: &str) -> Result<i32, Report> {
     let data = common::read_str_file(path)?;
-    let mut diagram = vec!([0; 1000]; 1000);
+    let mut diagram = vec![[0; 1000]; 1000];
     for d in data {
         //info!("{}", d);
         let t: (&str, &str) = d.split(" -> ").collect_tuple().unwrap();
@@ -43,7 +43,7 @@ pub fn p1(path: &str) -> Result<i32, Report> {
 }
 pub fn p2(path: &str) -> Result<i32, Report> {
     let data = common::read_str_file(path)?;
-    let mut diagram = vec!([0; 1000]; 1000);
+    let mut diagram = vec![[0; 1000]; 1000];
     for d in data {
         //info!("{}", d);
         let t: (&str, &str) = d.split(" -> ").collect_tuple().unwrap();

@@ -4,7 +4,10 @@ use crate::common;
 
 pub fn p1(path: &str) -> Result<i32, Report> {
     let data = common::read_str_file(path)?;
-    let mut start: Vec<i32> = data[0].split(',').map(|s| s.parse::<i32>().unwrap()).collect();
+    let mut start: Vec<i32> = data[0]
+        .split(',')
+        .map(|s| s.parse::<i32>().unwrap())
+        .collect();
     for _ in 0..170 {
         let mut n = 0;
         for s in &mut start {
@@ -24,8 +27,14 @@ pub fn p1(path: &str) -> Result<i32, Report> {
 pub fn p2(path: &str) -> Result<usize, Report> {
     //let mut data: Vec<u8> = vec![1];
     let data = common::read_str_file(path)?;
-    let start: Vec<usize> = data[0].split(',').map(|s| s.parse::<usize>().unwrap()).collect();
-    let magic: Vec<usize> = vec![6703087164, 6206821033, 5617089148, 5217223242, 4726100874, 4368232009, 3989468462, 3649885552, 3369186778, 3053201612];
+    let start: Vec<usize> = data[0]
+        .split(',')
+        .map(|s| s.parse::<usize>().unwrap())
+        .collect();
+    let magic: Vec<usize> = vec![
+        6703087164, 6206821033, 5617089148, 5217223242, 4726100874, 4368232009, 3989468462,
+        3649885552, 3369186778, 3053201612,
+    ];
     let mut total = 0;
     for s in start {
         total += magic[s];
